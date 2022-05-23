@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Updation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">  
+</head>
+<body>
+    <center>
+        <h1>Update Student</h1>
+    {% for i in edit %}
+    <form action="/studedit/{{i.studid}}" method="POST">
+        Name : <input type="text" class="form" name="sname" value="{{i.name}}"> <br><br>
+        Age : <input type="number" class="form" name="sage" value="{{i.age}}"> <br><br>
+        Email : <input type="text" class="form" name="semail" value="{{i.email}}"> <br><br>
+        Place : <input type="text" class="form" name="splace" value="{{i.place}}"> <br><br>
+        <input class="btn btn-dark" type="submit" value="Update">
+    </form>
+    {% endfor %}
+</center>
+</body>
+</html>

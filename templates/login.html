@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LogIN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">  
+
+</head>
+<body>
+    <div class="container">
+    <center>
+        <h1>Welcome</h1>
+        <form action="/authenticate" method="POST">
+           <input type="text" class="form" placeholder="username" name="username"> <br><br>
+           <input type="text" class="form" placeholder="password" name="password"> <br><br>
+            <input class="btn btn-primary" type="submit" value="Log In">
+        </form>
+            <br><br>
+        <button class="btn btn-success"><a style="text-decoration: inherit; color: inherit;" href="/register">Register</a></button>
+    </center>
+</div>
+</body>
+</html>

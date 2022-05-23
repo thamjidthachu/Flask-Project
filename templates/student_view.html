@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Views</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">  
+    <script src="{{url_for('static', filename='js/search.js')}}"></script>
+</head>
+<body>
+
+    <div class="container-lm">
+        <nav class="navbar navbar-expand-sm bg-dark">
+            <!-- <a class="navbar-brand" href="#">logo</a> -->
+            <a class="navbar-brand" href="#"><img class="rounded-circle ms-3" style="height: 75px;width: 75px;" src="{{url_for('static', filename='thachu-images/thachu.jpg')}}" ></a>
+                <ul class="nav-bar nav">
+                <li class="nav-item">
+                     <a class="nav-link" style="color: white;"href="/">Home</a>
+                </li>
+               
+                <li class="nav-item">
+                    <button class="btn btn-outline-warning">  <a class="nav-link" style="color: inherit;"href="/register">Register</a></button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="ms-3 btn btn-outline-warning"> <a class="nav-link" style="color: inherit;"href="/">Log Out</a></button>
+                </li>
+
+                <li class="nav-item">
+                        <input type="text" id="myInput" onkeyup="myFunction()" class=" ms-5 mt-2 form-control" placeholder="Search">
+                    </div>
+
+            </ul>
+            
+        </div>
+
+
+
+
+
+
+
+    <div class="container">
+    <center>
+        <h1>Students Details</h1>
+        <table id="myTable" class="table table-bordered table-hover table-mute">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Place</th>
+            <th>Action</th>
+            <th>Status</th>
+            <th>Admin</th>
+            <th>Staff</th>
+            <th>Approve</th>
+            <th>Staff</th>
+            <th>Admin</th>
+
+        </tr>
+
+        {% for i in view %}
+        <tr style="border: solid 1px;">
+            <td>{{i.studid}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.place}}</td>
+            <td>{{i.email}}</td>
+            <td align="center">
+                <button class="btn btn-outline-danger"><a style="text-decoration: inherit;color: inherit;" href="/studentedit/{{ i.studid }}">Edit</a></button>
+                <button class="btn btn-danger"><a style="text-decoration: inherit;color: inherit;" href="studdel/{{ i.studid }}">Delete</a></button>
+            </td>
+            <td>{{i.status}}</td>
+            <td>{{i.admin}}</td>
+            <td>{{i.teacher}}</td>
+            <td align="center">
+                <button class="btn btn-success"><a style="text-decoration: inherit;color: inherit;" href="approve/{{ i.studid }}">Approve</a></button>
+            </td>
+            <td align="center">
+                <button class="btn btn-info"><a style="text-decoration: inherit;color: inherit;" href="makestaff/{{ i.studid }}">Make as Staff</a></button>
+            </td>
+            <td align="center">
+                <button class="btn btn-danger"><a style="text-decoration: inherit;color: inherit;" href="makeadmin/{{ i.studid }}">Make Admin</a></button>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table></br>
+    </center>
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Individulal Views</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">  
+
+</head>
+<body>
+<div class="container">
+    <center>
+        <h3>Students Details</h3>
+        <table class="table table-striped table-bordered table-hover table-secondary">
+            <tr>
+                <th>Feilds</th>
+                <th>Account Details</th>
+            </tr>
+
+            <tr>
+                <th>Name</th>
+                <td>{{view.name}}</td>
+            </tr>
+
+            <tr>
+                <th>Age</th>
+                <td>{{view.age}}</td>
+            </tr>
+
+            <tr>
+                <th>Email</th>
+                <td>{{view.email}}</td>
+            </tr>
+
+            <tr>
+                <th>Place</th>
+                <td>{{view.place}}</td>
+            </tr>
+
+            <tr>
+                <th>Status</th>
+                <td>{{view.status}}</td>
+            </tr>
+
+            <tr>
+                <td align="center">
+                    <button class="btn btn-outline-danger"><a style="text-decoration: inherit;color: inherit;" href="/studentedit/{{ view.studid }}">Edit</a></button>
+                </td>
+
+                <td align="center">
+                <button class="btn btn-danger"><a style="text-decoration: inherit;color: inherit;" href="studdel/{{ view.studid }}">Delete My Data</a></button>
+                </td>
+            </tr>
+
+    </table></br>
+    <h3>Teachers Details</h3>
+        <table class="table table-bordered table-hover table-mute">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Place</th>
+
+        </tr>
+
+        {% for i in staff %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.place}}</td>
+            <td>{{i.email}}</td>
+        {% endfor %}
+
+    </table></br>
+    <button class="btn btn-outline-success"><a style="text-decoration: inherit;color: inherit;" href="/">Log Out</a></button>
+    </center>
+</div>
+</body>
+</html>
